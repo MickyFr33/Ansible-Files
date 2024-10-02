@@ -1,0 +1,13 @@
+---
+- hosts: my_vms
+  become: yes  # To run commands as root
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        autoremove: yes
+        force_apt_get: yes
